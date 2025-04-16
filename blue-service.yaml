@@ -8,8 +8,8 @@ spec:
   selector: 
     app: harness
     version: blue
-    ports:
+  ports:
       - protocol: TCP
         port: 80
         targetPort: 7000
-    type: LoadBalancer
+  type: LoadBalancer
