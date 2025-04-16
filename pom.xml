@@ -74,7 +74,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.assy.com.App</mainClass> <!-- Make sure this class exists -->
+                            <mainClass>com.harshini.com.App</mainClass> <!-- Make sure this class exists -->
                         </manifest>
                     </archive>
                 </configuration>
