@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata: 
+  name: harness-blue-service
+  annotations:
+    harness.io/primary-service: "true"
+spec: 
+  selector: 
+    app: harness
+    version: blue
+    ports:
+      - protocol: TCP
+        port: 80
+        targetPort: 8081
+    type: LoadBalancer
