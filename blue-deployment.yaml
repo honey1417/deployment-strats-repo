@@ -18,4 +18,4 @@ spec:
         - name: harness-v1-cont
           image: harshini1402/harness-deployment-repo:1.0
           ports:
-            - containerPort: 7000
+            - containerPort: 9000
