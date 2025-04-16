@@ -8,7 +8,7 @@ WORKDIR /app
 COPY target/harness-deployment-1.0-SNAPSHOT.jar /app/harness-deployment-1.0-SNAPSHOT.jar
 
 # Step 4: Expose the port the app will be listening on
-EXPOSE 8080
+EXPOSE 7000
 
 # Step 5: Command to run the Spring Boot application when the container starts
 ENTRYPOINT ["java", "-jar", "/app/harness-deployment-1.0-SNAPSHOT.jar"]
