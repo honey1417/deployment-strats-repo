@@ -5,10 +5,10 @@ FROM openjdk:17-jdk-slim
 WORKDIR /app
 
 # Step 3: Copy the Spring Boot application JAR file into the container
-COPY target/harness-deployment-1.0-SNAPSHOT.jar /app/harness-deployment-1.0-SNAPSHOT.jar
+COPY target/harness-deployment-1.0-SNAPSHOT.jar /app/app.jar
 
 # Step 4: Expose the port the app will be listening on
-EXPOSE 7000
+EXPOSE 9000
 
 # Step 5: Command to run the Spring Boot application when the container starts
-ENTRYPOINT ["java", "-jar", "/app/harness-deployment-1.0-SNAPSHOT.jar"]
+ENTRYPOINT ["java", "-jar", "/app/app.jar"]
