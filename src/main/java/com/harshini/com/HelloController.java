@@ -10,6 +10,6 @@ public class HelloController {
 
     @GetMapping
     public String sayHello() {
-        return "harness-deployment-image-2";
+        return "harness-deployment-image-1";
     }
 }
