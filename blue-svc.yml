@@ -9,6 +9,7 @@ spec:
   type: LoadBalancer
   selector:
     app: app1  
+    version: blue
   ports:
   - protocol: TCP
     port: 80
