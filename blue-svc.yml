@@ -1,4 +1,3 @@
-# app-service.yaml
 apiVersion: v1
 kind: Service
 metadata:
@@ -8,9 +7,10 @@ metadata:
 spec:
   type: LoadBalancer
   selector:
-    app: app1  
+    app: app1
     version: blue
   ports:
   - protocol: TCP
     port: 80
     targetPort: 80
+
