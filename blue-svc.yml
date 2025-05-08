@@ -2,7 +2,9 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: version1-svc
+  name: blue-svc
+  annotations:
+    harness.io/primary-service: "true"
 spec:
   type: LoadBalancer
   selector:
