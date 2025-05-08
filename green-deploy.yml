@@ -8,12 +8,12 @@ spec:
   replicas: 2
   selector:
     matchLabels:
-      app: app2
+      app: app1
       version: green
   template:
     metadata:
       labels:
-        app: app2
+        app: app1
         version: green
     spec:
       containers:
