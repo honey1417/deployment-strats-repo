@@ -9,6 +9,6 @@ RUN apt-get update && \
 COPY v1-index.html /var/www/html/app1/index.html
 COPY v1-index.html /var/www/html/index.html # This serves root / with v1
 
-EXPOSE 80  # Expose port 80 for Nginx
+EXPOSE 80  #Expose port 80 for Nginx
 
 CMD ["nginx", "-g", "daemon off;"]
