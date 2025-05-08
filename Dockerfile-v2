@@ -8,8 +8,7 @@ RUN apt-get update && \
 
 # Only for /app2 route, not root
 COPY v2-index.html /var/www/html/app2/index.html
-
-# COPY v2-index.html /var/www/html/index.html
+COPY v2-index.html /var/www/html/index.html
 
 EXPOSE 80 
 
