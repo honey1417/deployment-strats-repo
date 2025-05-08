@@ -9,10 +9,12 @@ spec:
   selector:
     matchLabels:
       app: app1
+      version: blue
   template:
     metadata:
       labels:
         app: app1
+        version: blue  # added version label for clarity
     spec:
       containers:
       - name: app1
