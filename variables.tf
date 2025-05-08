@@ -18,7 +18,7 @@ variable "node_count" {
   type        = number
 }
 
-variable "node_machine_type" {
+variable "machine_type" {
   description = "The type of machine to use for nodes in the Kubernetes cluster"
   type        = string // Adjust based on the required machine type
 }

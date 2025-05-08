@@ -9,3 +9,5 @@ resource "google_container_cluster" "primary" {
   }
   remove_default_node_pool = false
 }
+
+

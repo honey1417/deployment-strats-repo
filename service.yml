@@ -1,0 +1,13 @@
+# app-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: app-lb
+spec:
+  type: LoadBalancer
+  selector:
+    app: app1  # point to app1 initially
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
