@@ -2,7 +2,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: app2-deployment
+  name: green-deployment
   annotations: 
     harness.io/direct-apply: "true"
   labels:
