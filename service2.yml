@@ -1,1 +1,14 @@
 
+# app-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: version2-svc
+spec:
+  type: LoadBalancer
+  selector:
+    app: app2  
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
