@@ -7,10 +7,10 @@ RUN apt-get update && \
     chmod -R 755 /var/www/html
 
 # Only for /app2 route, not root
-COPY v2-index.html /var/www/html/app2/index.html 
+COPY v2-index.html /var/www/html/app2/index.html
+
 # COPY v2-index.html /var/www/html/index.html
 
-# Expose port 80 for Nginx
 EXPOSE 80 
 
 CMD ["nginx", "-g", "daemon off;"]
