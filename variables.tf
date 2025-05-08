@@ -8,6 +8,11 @@ variable "region" {
   type        = string  // Change to a region with sufficient quota
 }
 
+variable "zone" {
+  description = "The region where the resources will be created"
+  type        = string  // Change to a zone with sufficient quota
+}
+
 variable "cluster_name" {
   description = "The name of the Kubernetes cluster"
   type        = string
