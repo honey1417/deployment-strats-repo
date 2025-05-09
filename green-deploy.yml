@@ -1,31 +1,27 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: green-deployment
   annotations:
-     harness.io/direct-apply: "true"
-  labels:
-    app: app1
-    harness.io/color: green
+    harness.io/direct-apply: "true"
 spec:
   replicas: 2
   selector:
     matchLabels:
       app: app1
-      harness.io/color: green
+      version: green
   template:
     metadata:
       labels:
         app: app1
-        harness.io/color: green
+        version: green
     spec:
       containers:
       - name: app2
         image: harshini1402/harness-deployment-repo:version-2
         ports:
         - containerPort: 80
-
-
 
 
 # apiVersion: apps/v1
