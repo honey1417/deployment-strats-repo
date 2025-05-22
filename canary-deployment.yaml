@@ -5,7 +5,7 @@ kind: Deployment
 metadata:
   name: my-app-primary
   labels:
-    app: my-app0
+    app: my-app
     version: primary
   annotations:
     harness.io/direct-apply: "true"
