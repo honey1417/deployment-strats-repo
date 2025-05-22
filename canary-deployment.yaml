@@ -10,7 +10,7 @@ metadata:
   annotations:
     harness.io/direct-apply: "true"
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       app: my-app
