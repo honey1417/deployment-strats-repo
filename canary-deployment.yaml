@@ -1,0 +1,54 @@
+# 1st image yaml deployment
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-app-primary
+  labels:
+    app: my-app0
+    version: primary
+  annotations:
+    harness.io/direct-apply: "true"
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: my-app0
+      version: primary
+  template:
+    metadata:
+      labels:
+        app: my-app0
+        version: primary
+    spec:
+      containers:
+        - name: my-app0
+          image: harshini1402/harness-deployment-repo:version-1-9
+          ports:
+            - containerPort: 80
+---
+# 2nd image yaml deployment 
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-app-canary
+  labels:
+    app: my-app1
+    version: canary
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-app1
+      version: canary
+  template:
+    metadata:
+      labels:
+        app: my-app1
+        version: canary
+    spec:
+      containers:
+        - name: my-app1
+          image: harshini1402/harness-deployment-repo:version-2-10
+          ports:
+            - containerPort: 80
