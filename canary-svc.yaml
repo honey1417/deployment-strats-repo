@@ -6,10 +6,10 @@ kind: Service
 metadata:
   name: my-app-svc
   # Enables GKE’s container-native load balancing (NEGs), necessary for GKE Ingress to route traffic correctly to services/pods
-  annotations:
-    cloud.google.com/neg: '{"ingress": true}' 
+  #annotations:
+  #  cloud.google.com/neg: '{"ingress": true}' 
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   selector:
     app: my-app
   ports:
