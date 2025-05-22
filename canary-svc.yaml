@@ -1,0 +1,55 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-app-svc
+  # Enables GKE’s container-native load balancing (NEGs), necessary for GKE Ingress to route traffic correctly to services/pods
+  annotations:
+    cloud.google.com/neg: '{"ingress": true}' 
+spec:
+  type: LoadBalancer
+  selector:
+    app: my-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+
+---
+# destination rule: in a canary deployment (especially with Istio) is essential for defining how traffic is routed to different versions (subsets) of your application. 
+# Without it, the traffic splitting between canary and primary versions will not work properly, even if you have a VirtualService.
+
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: my-app-destn-rule
+spec:
+  host: my-app
+  subsets:
+    - name: primary
+      labels:
+        version: primary
+    - name: canary
+      labels:
+        version: canary
+
+---
+
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: traffic-split-my-app
+spec:
+  hosts:
+    - "*"
+  gateways:
+    - my-app-gateway
+  http:
+    - route:
+        - destination:
+            host: my-app
+            subset: primary
+          weight: 50
+        - destination:
+            host: my-app
+            subset: canary
+          weight: 50
