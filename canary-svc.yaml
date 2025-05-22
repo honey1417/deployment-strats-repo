@@ -1,3 +1,6 @@
+---
+# service
+
 apiVersion: v1
 kind: Service
 metadata:
@@ -15,6 +18,25 @@ spec:
       targetPort: 80
 
 ---
+# gateway
+
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: my-app-gateway
+  namespace: default
+spec:
+  selector:
+    istio: ingressgateway
+  servers:
+    - port:
+        number: 80
+        name: http
+        protocol: HTTP
+      hosts:
+        - "*"
+---
+
 # destination rule: in a canary deployment (especially with Istio) is essential for defining how traffic is routed to different versions (subsets) of your application. 
 # Without it, the traffic splitting between canary and primary versions will not work properly, even if you have a VirtualService.
 
@@ -33,6 +55,7 @@ spec:
         version: canary
 
 ---
+# virtual service
 
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
