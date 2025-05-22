@@ -13,12 +13,12 @@ spec:
   replicas: 3
   selector:
     matchLabels:
-      app: my-app0
+      app: my-app
       version: primary
   template:
     metadata:
       labels:
-        app: my-app0
+        app: my-app
         version: primary
     spec:
       containers:
@@ -33,18 +33,18 @@ kind: Deployment
 metadata:
   name: my-app-canary
   labels:
-    app: my-app1
+    app: my-app
     version: canary
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: my-app1
+      app: my-app
       version: canary
   template:
     metadata:
       labels:
-        app: my-app1
+        app: my-app
         version: canary
     spec:
       containers:
