@@ -50,5 +50,5 @@ spec:
         - name: my-app1
           image: harshini1402/demo-app:spring-success-v2
           ports:
-            - containerPort: 9000  # Matches EXPOSE and --server.port=9000 in entrypoint
+            - containerPort: 8080
 
