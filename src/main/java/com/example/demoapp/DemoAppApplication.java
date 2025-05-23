@@ -16,7 +16,7 @@ public class DemoAppApplication {
     @GetMapping("/hello")
     public String hello() {
         // You can imagine this returning data from a database or another service
-        return "Hello from Spring Boot CI/CD App! (Version: 1.0)";
+        return "Hello from Spring Boot CI/CD App! (Version: 2.0 - New Feature!)";
     }
 
     @GetMapping("/health")
