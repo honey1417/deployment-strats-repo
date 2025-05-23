@@ -1,1 +1,1 @@
-Repository for implementing deployment strategies
+Repository for implementing deployment strategies - canary
