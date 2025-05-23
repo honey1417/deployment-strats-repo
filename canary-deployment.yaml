@@ -22,9 +22,9 @@ spec:
     spec:
       containers:
         - name: my-app0
-          image: harshini1402/harness-deployment-repo:version-1-9
+          image: harshini1402/demo-app:spring-success-v1
           ports:
-            - containerPort: 80
+            - containerPort: 8080  # Matches EXPOSE and Spring Boot default
 ---
 # 2nd image yaml deployment 
 apiVersion: apps/v1
@@ -48,6 +48,7 @@ spec:
     spec:
       containers:
         - name: my-app1
-          image: harshini1402/harness-deployment-repo:version-2-10
+          image: harshini1402/demo-app:spring-success-v2
           ports:
-            - containerPort: 80
+            - containerPort: 9000  # Matches EXPOSE and --server.port=9000 in entrypoint
+
