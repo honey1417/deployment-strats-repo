@@ -1,0 +1,29 @@
+# Apex - Primary service
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-app-service  # 👈 Apex service name
+  annotations:
+    harness.io/primary-service: "true"
+spec:
+  selector:
+    app: my-app
+    version: primary
+  ports:
+    - port: 80
+      targetPort: 8080
+---
+# Canary Service
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-app-canary-service
+spec:
+  selector:
+    app: my-app
+    version: canary
+  ports:
+    - port: 80
+      targetPort: 8080
