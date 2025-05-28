@@ -45,7 +45,7 @@ kind: DestinationRule
 metadata:
   name: my-app-destn-rule
 spec:
-  host: my-app
+  host: my-app-svc
   subsets:
     - name: primary
       labels:
@@ -67,12 +67,17 @@ spec:
   gateways:
     - my-app-gateway
   http:
-    - route:
+    - match:
+        - uri:
+            prefix: /hello
+      route:
         - destination:
-            host: my-app
+            host: my-app-svc
             subset: primary
           weight: 50
         - destination:
-            host: my-app
+            host: my-app-svc
             subset: canary
           weight: 50
+
+
