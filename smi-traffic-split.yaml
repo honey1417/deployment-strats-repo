@@ -4,9 +4,9 @@ metadata:
   name: my-app-traffic-split
   namespace: default
 spec:
-  service: my-app-service  # 👈 Apex service name (external consumers call this)
+  service: my-app-service  # Apex service that clients access
   backends:
-    - service: my-app-service
-      weight: 50
-    - service: my-app-canary-service
-      weight: 50
+    - service: my-app-service         # Points to primary version
+      weight: 80
+    - service: my-app-canary-service  # Points to canary version
+      weight: 20
