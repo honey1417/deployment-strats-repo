@@ -1,0 +1,12 @@
+apiVersion: split.smi-spec.io/v1alpha3
+kind: TrafficSplit
+metadata:
+  name: my-app-traffic-split
+  namespace: default
+spec:
+  service: my-app-service  # 👈 Apex service name (external consumers call this)
+  backends:
+    - service: my-app-service
+      weight: 50
+    - service: my-app-canary-service
+      weight: 50
