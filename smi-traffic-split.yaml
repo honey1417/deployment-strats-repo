@@ -6,7 +6,7 @@ metadata:
 spec:
   service: my-app-service  # Apex service that clients access
   backends:
-    - service: my-app-service         # Points to primary version
-      weight: 80
+    - service: my-app-primary-service         # Points to primary version
+      weight: 50
     - service: my-app-canary-service  # Points to canary version
-      weight: 20
+      weight: 50
